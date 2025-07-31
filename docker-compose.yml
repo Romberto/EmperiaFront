@@ -6,40 +6,12 @@ services:
       context: ./react_vite
       dockerfile: Dockerfile
     container_name: react_frontend
-    restart: always
     expose:
-      - "80"  # важно, чтобы Nginx-прокси подключался к этому порту
-    environment:
-      - VIRTUAL_HOST=promoto64.ru
-      - LETSENCRYPT_HOST=promoto64.ru
-      - LETSENCRYPT_EMAIL=korhoff@mail.ru
-
-  nginx-proxy:
-    image: nginxproxy/nginx-proxy
-    container_name: nginx_proxy
+      - "80"
     restart: always
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-      - ./certs:/etc/nginx/certs
-      - ./vhost.d:/etc/nginx/vhost.d
-      - ./html:/usr/share/nginx/html
-    environment:
-      - DEFAULT_HOST=promoto64.ru
+    networks:
+      - frontend
 
-  letsencrypt:
-    image: nginxproxy/acme-companion
-    container_name: nginx_acme
-    restart: always
-    depends_on:
-      - nginx-proxy
-    environment:
-      - DEFAULT_EMAIL=korhoff@mail.ru
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./certs:/etc/nginx/certs
-      - ./vhost.d:/etc/nginx/vhost.d
-      - ./html:/usr/share/nginx/html
-      - ./acme:/etc/acme.sh
+networks:
+  frontend:
+    external: true
