@@ -78,6 +78,7 @@ export const Header: React.FC = () => {
   return (
     <header className={styled.header}>
       <a href="#">
+        <p style={{color:"white"}}>testdeploy</p>
         <img className={styled.logo__img} src={logo} alt="Логотип" />
       </a>
       <div className={styled.auth}>
