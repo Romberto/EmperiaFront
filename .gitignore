@@ -24,7 +24,7 @@ react_vite/*.ntvs*
 react_vite/*.njsproj
 react_vite/*.sln
 react_vite/*.sw?
-.idea
+/.idea
 
 
 # Distribution / packaging
