@@ -10,7 +10,7 @@ export const SOSButton: React.FC = () => {
   return (
     <div className={styled.gradient_glow}>
       <Button variant="bighelp" fontSize={60} onClick={()=> dispatch(setSosModulOpen())}>
-        <span style={{ color: "var(--orange)" }}>HELP ME</span>
+        <span style={{ color: "var(--orange)" }}>SOS</span>
       </Button>
     </div>
   );
