@@ -1,10 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import type { AuthResponse, TelegramAuthPayload } from "./types";
+import { BASE_URL } from "../../app/config";
 
 export const telegramAuthApi = createApi({
   reducerPath: "telegramAuthApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://cafeapi.ru/api/v1",
+    baseUrl: BASE_URL,
     credentials: "include"
   }),
   endpoints: (builder) => ({
