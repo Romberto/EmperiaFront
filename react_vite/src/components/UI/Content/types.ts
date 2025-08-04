@@ -1,1 +1,1 @@
-export type SosType = "dtp" | "conflict";
+export type SosType = "dtp" | "conflict" | "distroy";

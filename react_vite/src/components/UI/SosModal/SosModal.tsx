@@ -92,6 +92,13 @@ export const SosModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
             >
               Конфликтная ситуация
             </Button>
+            <Button
+              style={{ fontSize: 25, width: "90%" }}
+              disabled={isLoading}
+              onClick={() => sendSOS("distroy")}
+            >
+              Поломка
+            </Button>
           </div>
         ) : (
           <div className={styled.spiner_base}>
